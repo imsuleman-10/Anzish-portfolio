@@ -1,0 +1,288 @@
+/* Custom High-Contrast Variables */
+:root {
+    --color-dark: #0F0F0F; /* Deep Black Background */
+    --color-bg-light: #212121; /* Card/Section Background */
+    --color-neon-primary: #39FF14; /* Electric Green for Primary Accent (High Contrast) */
+    --color-neon-secondary: #00A6FB; /* Bright Blue for Secondary Highlight */
+    --color-text-light: #F0F0F0; /* Bright White Text */
+    --color-text-medium: #A0A0A0;
+    /* High-contrast neon shadow */
+    --shadow-neon: 0 0 15px rgba(57, 255, 20, 0.7); 
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-dark); 
+    color: var(--color-text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* --- Global Section & Scroll Reveal --- */
+.section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Initial state for Scroll-Reveal: Invisible and slightly moved */
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    opacity: 0; 
+    transform: translateY(40px);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.1);
+}
+
+/* CRITICAL: Makes the section visible when JS adds this class */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    color: var(--color-neon-primary);
+    text-align: center;
+    margin-bottom: 60px;
+    text-shadow: var(--shadow-neon);
+    letter-spacing: 2px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-dark);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 5px;
+}
+
+.hero h2 {
+    font-size: 1.6rem;
+    color: var(--color-neon-primary);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: var(--color-text-medium);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* --- Neon Buttons (Hover & Click Animation) --- */
+.neon-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-transform: uppercase;
+}
+
+.primary-btn {
+    border-color: var(--color-neon-primary);
+    color: var(--color-dark);
+    background: var(--color-neon-primary);
+    box-shadow: 0 0 5px var(--color-neon-primary);
+}
+
+.primary-btn:hover {
+    background: transparent;
+    color: var(--color-neon-primary);
+    box-shadow: var(--shadow-neon);
+    transform: scale(1.05);
+}
+
+.secondary-btn {
+    border-color: var(--color-neon-secondary);
+    color: var(--color-neon-secondary);
+}
+
+.secondary-btn:hover {
+    background: var(--color-neon-secondary);
+    color: var(--color-dark);
+    box-shadow: 0 0 15px var(--color-neon-secondary);
+    transform: scale(1.05);
+}
+
+/* --- SKILLS SECTION (Skill Chip Hover) --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill-chip {
+    padding: 12px 25px;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-neon-secondary);
+    color: var(--color-text-light);
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(0, 166, 251, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-chip:hover {
+    background-color: var(--color-neon-secondary);
+    color: var(--color-dark);
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.02); /* Lift and Scale Animation */
+    box-shadow: 0 0 15px var(--color-neon-secondary);
+}
+
+/* --- PROJECTS SECTION (Card Hover Animation) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background-color: var(--color-bg-light);
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-15px); /* Significant Lift Animation */
+    box-shadow: 0 10px 30px var(--color-neon-primary);
+    cursor: pointer;
+}
+
+.project-card h3 {
+    color: var(--color-neon-primary);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.project-tags {
+    font-size: 0.8rem;
+    color: var(--color-neon-secondary);
+    margin-top: 15px;
+}
+
+.view-link {
+    margin-top: 20px;
+    color: var(--color-neon-primary);
+    font-weight: 700;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: color 0.3s;
+}
+
+.view-link:hover {
+    color: var(--color-text-light);
+    text-shadow: 0 0 5px var(--color-neon-primary);
+}
+
+/* --- ABOUT SECTION --- */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 5px solid var(--color-neon-secondary);
+    background-color: rgba(0, 166, 251, 0.1);
+    color: var(--color-text-light);
+    font-style: italic;
+    border-radius: 8px;
+}
+
+/* --- CONTACT & FOOTER --- */
+#contact {
+    padding: 60px 5% 30px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+    display: grid;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--color-neon-primary);
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: var(--shadow-neon);
+}
+
+/* Social Links (Logo Hover Animation) */
+.social-links {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    color: var(--color-neon-secondary);
+    font-size: 2.5rem;
+    margin: 0 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--color-neon-primary);
+    transform: scale(1.25) rotate(5deg); /* Dynamic Logo Animation */
+    filter: drop-shadow(0 0 8px var(--color-neon-primary));
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--color-text-medium);
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .hero h2 {
+        font-size: 1.4rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
